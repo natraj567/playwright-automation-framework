@@ -44,3 +44,21 @@ OrangeHRM/
 - **types:** Contains TypeScript interfaces and type definitions.
 - **utils:** Contains reusable helper functions, including Excel reading.
 - **.github/workflows:** Contains GitHub Actions workflow configuration.
+
+---
+
+## Test Execution Report
+
+The framework generates Playwright HTML reports to display test execution results.
+
+### Login Test Execution
+
+![Playwright Login Test Report](screenshots/login-test-report.png)
+
+### Execution Summary
+
+- Total Test Cases: 2
+- Passed: 2
+- Failed: 0
+- Browser: Chromium
+- Execution Time: 17.9 seconds

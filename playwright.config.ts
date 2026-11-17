@@ -19,7 +19,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.ORANGEHRM_UI_URL,
     trace: 'on-first-retry',
-    headless: false,
+    headless: true,
   },
 
   // Browser configuration

@@ -10,7 +10,12 @@ export class LoginPage {
     }
 
     async navigateToLoginPage() {
-        await this.page.goto('/');
+
+        await this.page.goto('/', {
+        waitUntil: 'domcontentloaded',
+        timeout: 60000
+    });
+
     }
 
     async login(username: string, password: string) {

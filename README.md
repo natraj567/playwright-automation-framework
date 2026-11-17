@@ -62,3 +62,5 @@ The framework generates Playwright HTML reports to display test execution result
 - Failed: 0
 - Browser: Chromium
 - Execution Time: 17.9 seconds
+
+### GitHub Actions is configured for main and master branches.

@@ -1,27 +1,54 @@
+
 name: Playwright Tests
+
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master]
+
   pull_request:
     branches: [ main, master ]
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    # Environment variables from GitHub Repository Settings
+    env:
+      ORANGEHRM_UI_URL: ${{ vars.ORANGEHRM_UI_URL }}
+      ORANGEHRM_API_BASE_URL: ${{ vars.ORANGEHRM_API_BASE_URL }}
+      ORANGEHRM_API_TOKEN: ${{ secrets.ORANGEHRM_API_TOKEN }}
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      # Checkout repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      # Install project dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Install Playwright browsers and system dependencies
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # Execute Playwright tests
+      - name: Run Playwright tests
+        run: npx playwright test
+
+      # Upload HTML report
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+          if-no-files-found: ignore

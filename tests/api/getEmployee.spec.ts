@@ -24,10 +24,4 @@ test('Verify Get Employee API', async ({ apiContext }) => {
     const employeeID = responseBody.data.empNumber;
     const lastName = responseBody.data.lastName;
     const firstName = responseBody.data.firstName;
-
-    // Print response details
-    console.log('Status:', response.status());
-    console.log('Employee ID:', employeeID);
-    console.log('Last Name:', lastName);
-    console.log('First Name:', firstName);
 });

@@ -1,7 +1,7 @@
 import { test, expect } from '../../fixtures/test-fixtures'
 import { readExcelData } from '../../utils/excelReader';
 import type { LoginData } from '../../types/login.types';
-import { UserManagementPage } from '../../pages/userMangement';
+import { UserManagementPage } from '../../pages/userManagement';
 
 test('Verify navigation to User Management page', async ({ page, loginPage }) => {
 

@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 import { readExcelData } from '../utils/excelReader';
-import type { EmployeeScenario } from '../types/userMangement.types.ts';
+import type { EmployeeScenario } from '../types/userMangement.types';
 import { UserManagementLocators } from '../locators/userManagement.locators';
 import { TestDataGenerator } from '../utils/testDataGenerator';
 
